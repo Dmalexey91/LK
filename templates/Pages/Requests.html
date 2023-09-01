@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Обращения (заявки)</title>
+</head>
+<body>
+
+
+<style>
+
+body {
+    {#background-color: #98A2B3#}
+}
+.button_1692537788193 {
+    display: inline-block !important;
+    text-decoration: none !important;
+    background-color: #eaeaea !important;
+    color: #006089 !important;
+    border: 3px solid #006089 !important;
+    border-radius: 5px !important;
+    font-size: 25px !important;
+    padding: 10px 50px !important;
+    transition: all 0.8s ease !important;
+}
+.button_1692537788193:hover{
+    text-decoration: none !important;
+    background-color: #006089 !important;
+    color: #ffeded !important;
+    border-color: #006089 !important;
+}
+
+.tg  {border-collapse:collapse;border-spacing:0;}
+.tg td{border-color:black;border-style:solid;border-width:1px;font-family:Arial, sans-serif;font-size:14px;
+  overflow:hidden;padding:10px 5px;word-break:normal;}
+.tg th{border-color:black;border-style:solid;border-width:1px;font-family:Arial, sans-serif;font-size:14px;
+  font-weight:normal;overflow:hidden;padding:10px 5px;word-break:normal;}
+.tg .tg-0lax{text-align:left;vertical-align:top}
+
+</style>
+
+<a href="Home" class="button_1692537788193">
+  Назад
+</a>
+<a href="{{ url_for('get_page_Request', request_id=0)}}", class="button_1692537788193">
+    Создать заявку
+</a>
+<br>
+<br>
+<br>
+
+<table class="tg">
+  <thead>
+    <tr>
+        <th>ID</th>
+        <th>Дата создания</th>
+        <th>Клиент</th>
+        <th>Помещение</th>
+        <th>Описание</th>
+        <th>Статус</th>
+        <th>Тип</th>
+        <th>Срок</th>
+    </tr>
+    </thead>
+    <tbody>
+     {% for row in data %}
+            <tr>
+                <td><a href="{{ url_for('get_page_Request', request_id=row.req_id)}}">
+                    <div style="height:100%;width:100%">
+                        {{ row.req_id}}
+                    </div>
+                </a></td>
+                <td>{{ row.req_date }}</td>
+                <td>{{ row.client }}</td>
+                <td>{{ row.premises }}</td>
+                <td>{{ row.description }}</td>
+                <td>{{ row.status }}</td>
+                <td>{{ row.type }}</td>
+                <td>{{ row.desired_date }}</td>
+            </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+
+
+</body>
+</html>

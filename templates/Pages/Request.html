@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    {% if data[0].req_id == 0  %}
+        <title>Новая заявка</title>
+    {% else %}
+        <title>Заявка №{{ data[0].req_id }}</title>
+    {% endif %}
+
+</head>
+<body>
+
+<style>
+   textarea {
+    background: #eaeaea; /* Цвет фона */
+    border: 2px solid #006089; /* Параметры рамки */
+    padding: 10px; /* Поля */
+    width: 100%; /* Ширина */
+    height: 200px; /* Высота */
+    box-sizing: border-box; /* Алгоритм расчёта ширины */
+    font-size: 14px; /* Размер шрифта */
+   }
+
+.button_1692537788193 {
+    display: inline-block !important;
+    text-decoration: none !important;
+    background-color: #eaeaea !important;
+    color: #006089 !important;
+    border: 3px solid #006089 !important;
+    border-radius: 5px !important;
+    font-size: 25px !important;
+    padding: 10px 50px !important;
+    transition: all 0.8s ease !important;
+}
+.button_1692537788193:hover{
+    text-decoration: none !important;
+    background-color: #006089 !important;
+    color: #ffeded !important;
+    border-color: #006089 !important;
+}
+
+
+</style>
+
+    <h2 style="color: #006089;">Дмитриев Алексей</h2>
+    {% if data[0].req_id == 0  %}
+        <h2 style="color: #006089;">Список помещеий будет тут</h2>
+        <form action="handler.php">
+            <p><textarea name="description"></textarea></p>
+{#            <p><input type="submit"></p>#}
+        </form>
+        <label for="desired_date">Срок выполнения:</label>
+        <input type="date" id="desired_date" name="desired_date" value="2023-07-22" min="2023-01-01" max="2025-12-31"/>
+    {% else %}
+        <h2 style="color: #006089;">{{ data[0].premises }}</h2>
+        <h2 for="desired_date">Статус: {{ data[0].status }}</h2>
+        <h2 for="desired_date">Тип: {{ data[0].type }}</h2>
+        <p><textarea name="description" readonly>{{ data[0].description }}</textarea></p>
+        <h2 for="desired_date">Срок выполнения: {{ data[0].desired_date }}</h2>
+
+    {% endif %}
+
+<br><br>
+<a href="/Requests" class="button_1692537788193">
+    Назад
+</a>
+<a href="/Requests" class="button_1692537788193">
+    Сохранить
+</a>
+
+</body>
+</html>
