@@ -1,10 +1,9 @@
-import sqlalchemy.sql.expression
 from flask import Flask,render_template
-from sqlalchemy import create_engine, func
+from sqlalchemy import create_engine
 from sqlalchemy.sql import text
 
 app = Flask(__name__)
-engine = create_engine('postgresql://postgres:QWErty123@10.77.1.14:5432/new_lk')
+engine = create_engine('postgresql://postgres:123@1.2.3.4:5432/new_lk')
 
 def gerquerytext():
     return ''
